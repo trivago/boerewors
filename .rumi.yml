@@ -1,5 +1,18 @@
 stages:
   Testing:
+    test 3.4:
+      docker:
+        testhost:
+          image: python:3.4
+          volumes:
+            - ".:/app:ro"
+      commands:
+        - set -e
+        - cd /app
+        - pip install pytest
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 3.5',n,h]))"
+        - py.test tests
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 3.5 - Done',n,h]))"
     test 3.5:
       docker:
         testhost:
