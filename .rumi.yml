@@ -1,0 +1,41 @@
+stages:
+  Testing:
+    test 3.5:
+      docker:
+        testhost:
+          image: python:3.5
+          volumes:
+            - ".:/app:ro"
+      commands:
+        - set -e
+        - cd /app
+        - pip install pytest
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 3.5',n,h]))"
+        - py.test tests
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 3.5 - Done',n,h]))"
+    test 3.6:
+      docker:
+        testhost:
+          image: python:3.6
+          volumes:
+            - ".:/app:ro"
+      commands:
+        - set -e
+        - cd /app
+        - pip install pytest
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 3.6',n,h]))"
+        - py.test tests
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 3.6 - Done',n,h]))"
+    test 2.7:
+      docker:
+        testhost:
+          image: python:2.7
+          volumes:
+            - ".:/app:ro"
+      commands:
+        - set -e
+        - cd /app
+        - pip install pytest mock
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 2.7',n,h]))"
+        - py.test -rs tests
+        - python -c "h='='*80;n='';print('\n'.join([h,n,'Tests for Python 2.7 - Done',n,h]))"
