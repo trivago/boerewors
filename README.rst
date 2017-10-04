@@ -69,10 +69,8 @@ How to add a new command
                 yield self.job_class(server, self.config)
 
 
-Each runner can be derived from ``TrivagoRunner`` or
-``TrivagoRollBackRunner``. They will provide a set of useful command
-line parameters. If you plan to prohibit parallel execution or want to
-fine tune the job execution, we provided some useful class attributes.
+If you plan to prohibit parallel execution or want to fine tune the job
+execution, we provided some useful class attributes.
 
 .. code:: python
 
