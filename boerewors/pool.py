@@ -52,7 +52,6 @@ class Pool(LoggableObject):
                     self.log.info("task is finished :)")
                     self.finished_tasks.append(task)
             self.running_tasks = still_running_tasks
-            # from time import sleep; sleep(0.5)
 
     @property
     def results(self):
