@@ -8,7 +8,7 @@ test27:
   image: python:2.7
   script:
     - pip install -r requirements_test.txt
-    - pytest --cov trivago -- tests
+    - pytest --cov boerewors -- tests
   tags:
     - docker
 
@@ -17,7 +17,7 @@ test34:
   image: python:3.4
   script:
     - pip install -r requirements_test.txt
-    - pytest --cov trivago -- tests
+    - pytest --cov boerewors -- tests
   tags:
     - docker
 
@@ -26,7 +26,7 @@ test35:
   image: python:3.5
   script:
     - pip install -r requirements_test.txt
-    - pytest --cov trivago -- tests
+    - pytest --cov boerewors -- tests
   tags:
     - docker
 
@@ -35,6 +35,6 @@ test36:
   image: python:3.6
   script:
     - pip install -r requirements_test.txt
-    - pytest --cov trivago -- tests
+    - pytest --cov boerewors -- tests
   tags:
     - docker
