@@ -1,6 +1,10 @@
 boerewors
 =========
 
+
+.. image:: https://gitlab.com/trivago/rta/boerewors_tools/badges/master/pipeline.svg
+.. image:: https://gitlab.com/trivago/rta/boerewors_tools/badges/master/coverage.svg
+
 Boerewors is a release tool written in Python to streamline all DSE/PSE
 PHP releases. The name ``boerewors`` comes from `a traditional sausage
 for braai (BBQ) in
