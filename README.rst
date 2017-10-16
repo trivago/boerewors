@@ -6,7 +6,7 @@ boerewors
 .. image:: https://gitlab.com/trivago/rta/boerewors/badges/master/coverage.svg
 
 Boerewors is a release tool written in Python to streamline all DSE/PSE
-PHP releases. The name ``boerewors`` comes from `a traditional sausage
+PHP releases. The name ``boerewors`` comes from the name of `a traditional sausage
 for braai (BBQ) in
 Namibia🇳🇦 <https://en.wikipedia.org/wiki/Boerewors>`__. Since it started
 as a warmup script written in Python it reminded me of boerewors.
@@ -40,7 +40,7 @@ Running unit tests using py.test
 How to add a new command
 ------------------------
 
-1. create a new runner and define the stages
+1. Create a new runner and define the stages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
@@ -100,7 +100,7 @@ It is worth to mention that the jobs are asynchronous and not parallel.
 If the jobs are using only blocking statements you would not benefit
 from the pool.
 
-2. write the job
+2. Write the job
 ~~~~~~~~~~~~~~~~
 
 .. code:: python
@@ -132,7 +132,7 @@ from the pool.
 
 It is very important that at least one ``yield`` statement is used in
 the ``run_job`` generator function. Usually you can provide a new
-subtask to the executor and this generator function is continued as soon
+subtask to the executor and this generator function is continued as soon as
 the subtask is finished.
 
 When you ``yield self.Ok()`` at any point, you signal the executor, that
@@ -144,7 +144,7 @@ With the class property ``max_retries`` you can tell the executor how
 many times the job should be retried in case of failure before it is
 considered a final failure.
 
-3. how to execute it
+3. How to execute it
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
@@ -154,7 +154,7 @@ considered a final failure.
         executor.run()
 
 
-To Do
+To-Do
 -----
 
 - add config loading
