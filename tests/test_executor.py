@@ -111,15 +111,15 @@ class TimeRunner(runners.Runner):
         self.pool_size = pool_size
 
     def get_stages(self):
-        time_stage = TimeStage(self.num_jobs, self.pool_size)
+        time_stage = TimeStage(
+            self.num_jobs, self.pool_size, allow_parallel_execution=self.parallel)
         time_stage.is_canary = self.canary
-        time_stage.allow_parallel_execution = self.parallel
         yield time_stage
 
 
 class TimeStage(stage.Stage):
-    def __init__(self, num_jobs=10, pool_size=10):
-        super(TimeStage, self).__init__()
+    def __init__(self, num_jobs=10, pool_size=10, **kw):
+        super(TimeStage, self).__init__(**kw)
         self.num_jobs = num_jobs
         self.pool_params = dict(pool_size=pool_size)
 

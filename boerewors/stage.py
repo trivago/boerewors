@@ -22,8 +22,21 @@ class Stage(LoggableObject):
     can_fail = False
     pool_params = {}
 
-    def __init__(self):
+    def __init__(self,
+                 is_canary=None,
+                 allow_parallel_execution=None,
+                 can_fail=None,
+                 pool_params=None,
+                ):
         super(Stage, self).__init__()
+        if is_canary is not None:
+            self.is_canary = is_canary
+        if allow_parallel_execution is not None:
+            self.allow_parallel_execution = allow_parallel_execution
+        if can_fail is not None:
+            self.can_fail = can_fail
+        if pool_params is not None:
+            self.pool_params = pool_params
         self._joblist = []
 
     @property
