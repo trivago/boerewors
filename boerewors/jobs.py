@@ -314,7 +314,7 @@ class SSHJob(BourneShell):
         ip:             type str ip or hostname
         bash_command:   type str bash command that should be executed on the server
         user:           type str user name that connects to the server
-        options:        type List[str] default: ['StrictHostKeyChecking=no', 'BatchMode=yes']
+        options:        type List[str] default: ['StrictHostKeyChecking=no', 'BatchMode=yes', 'ConnectTimeout=10']
         stdout:         type str or subprocess.PIPE
                             "pipe" creates a file object (default)
                             None disables stdout for the process
@@ -329,7 +329,7 @@ class SSHJob(BourneShell):
 
         """
         if options is None:
-            options = ['StrictHostKeyChecking=no', 'BatchMode=yes']
+            options = ['StrictHostKeyChecking=no', 'BatchMode=yes', 'ConnectTimeout=10']
 
         if str(stdout).lower() == "pipe":
             stdout = PIPE
