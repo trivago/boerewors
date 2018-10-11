@@ -304,7 +304,7 @@ class BourneShell(PopenJob):
         self.log.debug("init bourneshell {}".format(bash_command))
 
 
-class SSHJob(BourneShell):
+class SSHJob(PopenJob):
 
     user = "sshuser"
 
@@ -343,10 +343,19 @@ class SSHJob(BourneShell):
             "user": self.user if user is None else user,
             "server": ip,
             "bash_command": self.bash_command,
-            "options": ' '.join("-o {}".format(o) for o in options)
         }
         self.ip = ip
-        ssh_command = '/usr/bin/ssh {options} {user}@{server} {bash_command}'.format(**data)
+        ssh_command = ['/usr/bin/ssh']
+        for option in options:
+            ssh_command += ["-o", option]
+        ssh_command += [
+            "{user}@{server}".format(**data),
+            "/usr/bin/env",
+            "bash",
+            "-xec",
+            self.bash_command
+        ]
+
         super(SSHJob, self).__init__(ssh_command, stdout=stdout, stderr=stderr)
         self.ssh_command = ssh_command
         self.log.debug("init ssh with {}".format(data))
