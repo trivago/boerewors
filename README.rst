@@ -9,8 +9,7 @@ boerewors
 
 Boerewors is a release tool written in Python to streamline all our
 PHP releases. The name ``boerewors`` comes from the name of `a traditional sausage
-for braai (BBQ) in
-Namibia🇳🇦 <https://en.wikipedia.org/wiki/Boerewors>`__. Since it started
+for braai (BBQ) in South Africa (which is also known in Namibia) <https://en.wikipedia.org/wiki/Boerewors>`__. Since it started
 as a warmup script written in Python it reminded me of boerewors.
 
 Dependencies
